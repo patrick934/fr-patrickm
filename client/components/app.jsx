@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Container from './Container';
 
 const App = props => {
-    return (
-        <div>Hello World!!</div>
-    )
+  return (
+    <div>
+      <div>Hello World!!</div>
+      <Container />
+    </div>
+  )
 }
 
 export default App
