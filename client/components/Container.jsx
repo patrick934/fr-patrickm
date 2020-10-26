@@ -3,7 +3,7 @@ import ListItem from './ListItem';
 import { ListGroup, Button, Navbar } from 'react-bootstrap';
 
 const Container = props => {
-  const [showItemContainer, setshowItemContainer] = useState({1: true, 2: false, 3: false, 4: false});
+  const [showItemContainer, setshowItemContainer] = useState({1: false, 2: false, 3: false, 4: false});
   const [itemContainer, setitemContainer] = useState([]);
 
   useEffect(()=>{
@@ -20,10 +20,9 @@ const Container = props => {
   })
 
   const handleClick = (e) => {
-    let value = Number(e.target.id) - 1;
-    let newVal = showItemContainer;
-    newVal[value] = false;
-    setshowItemContainer(newVal)
+    let value = Number(e.target.id);
+    console.log(value)
+    setshowItemContainer({...showItemContainer, [value]: !showItemContainer[value]})
   }
 
   return (
@@ -32,36 +31,38 @@ const Container = props => {
         <Navbar.Brand>Fetch</Navbar.Brand>
       </Navbar>
       <div>
-        <Button id="1" onClick={handleClick} variant="primary">List Id - 1</Button>
-        {showItemContainer["1"] &&
-          <ListGroup >
-            {display[0]}
-          </ListGroup>
-        }
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand id="2">List Id - 2</Navbar.Brand>
-        </Navbar>
-        {showItemContainer[2] &&
-          <ListGroup >
-            {display[1]}
-          </ListGroup>
-        }
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand id="3">List Id - 3</Navbar.Brand>
-        </Navbar>
-        {showItemContainer[3] &&
-          <ListGroup >
-            {display[2]}
-          </ListGroup>
-        }
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand id="4">List Id - 4</Navbar.Brand>
-        </Navbar>
-        {showItemContainer[4] &&
-          <ListGroup >
-            {display[3]}
-          </ListGroup>
-        }
+        <div class='listButtons'>
+          <Button id="1" onClick={handleClick} variant="primary">List Id - 1</Button>
+          {showItemContainer[1] &&
+            <ListGroup >
+              {display[0]}
+            </ListGroup>
+          }
+        </div>
+        <div>
+          <Button id="2" onClick={handleClick} variant="primary">List Id - 2</Button>
+          {showItemContainer[2] &&
+            <ListGroup >
+              {display[1]}
+            </ListGroup>
+          }
+        </div>
+        <div>
+          <Button id="3" onClick={handleClick} variant="primary">List Id - 3</Button>
+          {showItemContainer[3] &&
+            <ListGroup >
+              {display[2]}
+            </ListGroup>
+          }
+        </div>
+        <div>
+          <Button id="4" onClick={handleClick} variant="primary">List Id - 4</Button>
+          {showItemContainer[4] &&
+            <ListGroup >
+              {display[3]}
+            </ListGroup>
+          }
+        </div>   
       </div>
     </div>
   )
