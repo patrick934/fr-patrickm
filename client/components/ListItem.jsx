@@ -5,7 +5,10 @@ const ListItem = props => {
   
   
   return (
-    <div>Hello World!!</div>
+    <div>
+      <div>Hello</div>
+      {props.listId}
+    </div>
   )
 }
 
