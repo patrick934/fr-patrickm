@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { ListGroup } from 'react-bootstrap';
 
 const ListItem = props => {
     
-  
-  
   return (
-    <div>
-      <div>Hello</div>
-      {props.listId}
-    </div>
+    <ListGroup.Item variant="secondary" key={props.keyVal}>
+      {props.name}
+    </ListGroup.Item>
   )
 }
 
