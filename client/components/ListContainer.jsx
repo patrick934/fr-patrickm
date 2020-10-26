@@ -1,14 +1,18 @@
+import React from "react";
+import { ListGroup, Button} from 'react-bootstrap';
 
-// import { ListGroup, Button, Navbar } from 'react-bootstrap';
+const ListContainer = props => {
+    
+  return (
+    <div className="buttonContainer">
+      <Button id={props.id} onClick={props.onClick} variant="primary">List Id - {props.id}</Button>
+      {props.items &&
+        <ListGroup >
+          {props.display}
+        </ListGroup>
+      }
+    </div>
+  )
+}
 
-
-
-
-//     <div className="buttonContainer">
-//       <Button id="1" onClick={handleClick} variant="primary">List Id - 1</Button>
-//       {showItemContainer[1] &&
-//         <ListGroup >
-//           {display[0]}
-//         </ListGroup>
-//       }
-//     </div>
+export default ListContainer

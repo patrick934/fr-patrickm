@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListItem from './ListItem';
+import ListContainer from './ListContainer';
 import { ListGroup, Button, Navbar } from 'react-bootstrap';
 
 const Container = props => {
@@ -28,41 +29,13 @@ const Container = props => {
   return (
     <div>
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand>Click buttons to show 'name' details!</Navbar.Brand>
+        <Navbar.Brand>Toggle buttons to show 'name' details!</Navbar.Brand>
       </Navbar>
       <div>
-        <div className="buttonContainer">
-          <Button id="1" onClick={handleClick} variant="primary">List Id - 1</Button>
-          {showItemContainer[1] &&
-            <ListGroup >
-              {display[0]}
-            </ListGroup>
-          }
-        </div>
-        <div className="buttonContainer">
-          <Button id="2" onClick={handleClick} variant="primary">List Id - 2</Button>
-          {showItemContainer[2] &&
-            <ListGroup >
-              {display[1]}
-            </ListGroup>
-          }
-        </div>
-        <div className="buttonContainer">
-          <Button id="3" onClick={handleClick} variant="primary">List Id - 3</Button>
-          {showItemContainer[3] &&
-            <ListGroup >
-              {display[2]}
-            </ListGroup>
-          }
-        </div>
-        <div className="buttonContainer">
-          <Button id="4" onClick={handleClick} variant="primary">List Id - 4</Button>
-          {showItemContainer[4] &&
-            <ListGroup >
-              {display[3]}
-            </ListGroup>
-          }
-        </div>   
+        <ListContainer id={1} onClick={handleClick} items={showItemContainer[1]} display={display[0]} />
+        <ListContainer id={2} onClick={handleClick} items={showItemContainer[2]} display={display[1]} />
+        <ListContainer id={3} onClick={handleClick} items={showItemContainer[3]} display={display[2]} />
+        <ListContainer id={4} onClick={handleClick} items={showItemContainer[4]} display={display[3]} />
       </div>
     </div>
   )
