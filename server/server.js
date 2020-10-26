@@ -10,7 +10,13 @@ app.use(express.urlencoded())
 app.use(cors())
 
 
-app.use('/build', express.static(path.join(__dirname, '../build')));
+if (process.env.NODE_ENV === 'production') {
+	app.use('/build', express.static(path.join(__dirname, '../build')));
+	app.use(express.static('client'));
+	app.get('/', (req, res) => {
+		return res.sendFile(path.join(__dirname, '../client/index.html'));
+	});
+}
 
 app.get('/api', (req, res) => {
   // 1. fetch data from aws
@@ -39,8 +45,5 @@ app.get('/api', (req, res) => {
     .then((data)=>res.send(data))  
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
 
 app.listen(3000, () => console.log('Listening on port 3000...'));
