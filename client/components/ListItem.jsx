@@ -4,7 +4,7 @@ import { ListGroup } from 'react-bootstrap';
 const ListItem = props => {
     
   return (
-    <ListGroup.Item variant="secondary" key={props.keyVal}>
+    <ListGroup.Item className="buttonItems" variant="secondary" key={props.keyVal}>
       {props.name}
     </ListGroup.Item>
   )

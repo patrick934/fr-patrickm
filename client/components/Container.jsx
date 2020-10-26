@@ -28,10 +28,10 @@ const Container = props => {
   return (
     <div>
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand>Fetch</Navbar.Brand>
+        <Navbar.Brand>Click buttons to show 'name' details!</Navbar.Brand>
       </Navbar>
       <div>
-        <div class='listButtons'>
+        <div className="buttonContainer">
           <Button id="1" onClick={handleClick} variant="primary">List Id - 1</Button>
           {showItemContainer[1] &&
             <ListGroup >
@@ -39,7 +39,7 @@ const Container = props => {
             </ListGroup>
           }
         </div>
-        <div>
+        <div className="buttonContainer">
           <Button id="2" onClick={handleClick} variant="primary">List Id - 2</Button>
           {showItemContainer[2] &&
             <ListGroup >
@@ -47,7 +47,7 @@ const Container = props => {
             </ListGroup>
           }
         </div>
-        <div>
+        <div className="buttonContainer">
           <Button id="3" onClick={handleClick} variant="primary">List Id - 3</Button>
           {showItemContainer[3] &&
             <ListGroup >
@@ -55,7 +55,7 @@ const Container = props => {
             </ListGroup>
           }
         </div>
-        <div>
+        <div className="buttonContainer">
           <Button id="4" onClick={handleClick} variant="primary">List Id - 4</Button>
           {showItemContainer[4] &&
             <ListGroup >
