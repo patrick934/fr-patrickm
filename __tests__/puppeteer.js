@@ -1,8 +1,8 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer');
 
 const APP = `http://localhost:8080/`
 
-describe("Frontend Tests", () => {
+describe('Frontend Tests', () => {
 	let page;
 	let browser;
 
