@@ -4,10 +4,10 @@
   "description": "10-26-2020",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot \" \"nodemon server/server.js\"",
     "start": "NODE_ENV=production nodemon server/server.js",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "test": "jest --verbose --runInBand --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,8 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.0",
     "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.6.1",
+    "puppeteer": "^5.4.0",
     "sass-loader": "^10.0.4",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.1",

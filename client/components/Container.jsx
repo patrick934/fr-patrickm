@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListItem from './ListItem';
 import ListContainer from './ListContainer';
-import { ListGroup, Button, Navbar } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 const Container = props => {
   const [showItemContainer, setshowItemContainer] = useState({1: false, 2: false, 3: false, 4: false});
@@ -22,16 +22,15 @@ const Container = props => {
 
   const handleClick = (e) => {
     let value = Number(e.target.id);
-    console.log(value)
     setshowItemContainer({...showItemContainer, [value]: !showItemContainer[value]})
   }
 
   return (
-    <div>
+    <div id="listNavContainer">
       <Navbar bg="primary" variant="dark">
         <Navbar.Brand>Toggle buttons to show 'name' details!</Navbar.Brand>
       </Navbar>
-      <div>
+      <div id="listContainer">
         <ListContainer id={1} onClick={handleClick} items={showItemContainer[1]} display={display[0]} />
         <ListContainer id={2} onClick={handleClick} items={showItemContainer[2]} display={display[1]} />
         <ListContainer id={3} onClick={handleClick} items={showItemContainer[3]} display={display[2]} />
