@@ -1,13 +1,13 @@
 import React from "react";
 import { ListGroup } from 'react-bootstrap';
 
-const ListItem = props => {
-    
+const ListItem = (props) => {
+  const { keyVal, name } = props;
   return (
-    <ListGroup.Item className="buttonItems" variant="secondary" key={props.keyVal}>
-      {props.name}
+    <ListGroup.Item className="buttonItems" variant="secondary" key={keyVal}>
+      {name}
     </ListGroup.Item>
-  )
-}
+  );
+};
 
-export default ListItem
+export default ListItem;
