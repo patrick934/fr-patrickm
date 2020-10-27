@@ -10,6 +10,7 @@ const Container = () => {
   const [itemContainer, setitemContainer] = useState([]);
 
   useEffect(() => {
+    // fetch to aws and filtering / sorting handled in the backend (see server/server.js file)
     fetch('http://localhost:3000/api')
       .then((data) => data.json())
       .then((data) => {
@@ -19,7 +20,7 @@ const Container = () => {
 
   const display = [[], [], [], []];
   itemContainer.forEach((el, i) => {
-    display[el.listId - 1].push(<ListItem keyVal={i} listId={el.listId} name={el.name} />);
+    display[el.listId - 1].push(<ListItem key={el.name} keyVal={i} listId={el.listId} name={el.name} />);
   });
 
   const handleClick = (e) => {

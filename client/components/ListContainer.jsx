@@ -4,10 +4,10 @@ import { ListGroup, Button} from 'react-bootstrap';
 const ListContainer = (props) => {
   const { id, onClick, items, display } = props;
   return (
-    <div className="buttonContainer">
+    <div key={id} className="buttonContainer">
       <Button id={id} onClick={onClick} variant="primary">List Id - {id}</Button>
       {items && (
-        <ListGroup>
+        <ListGroup id={id}>
           {display}
         </ListGroup>
       )}
